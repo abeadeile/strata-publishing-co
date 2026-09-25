@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="./overrides.css">
   <link rel="stylesheet" href="./sai.css">
   <link rel="stylesheet" href="./brand.css">
+  <link rel="stylesheet" href="./carousel-mobile.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -77,7 +78,10 @@
 
     <section class="programs section" id="publications">
       <div class="section-head"><p class="eyebrow">From the desk</p><p class="section-note">Latest Strata Originals.</p></div>
-      <div class="desk-grid" data-originals aria-live="polite"><p class="desk-status">Loading latest Originals…</p></div>
+      <div class="desk-carousel">
+        <div class="desk-track" data-originals aria-live="polite"><p class="desk-status">Loading latest Originals…</p></div>
+        <div class="desk-controls" aria-label="Desk story navigation"><button type="button" data-desk-prev aria-label="Previous stories">←</button><button type="button" data-desk-next aria-label="Next stories">→</button></div>
+      </div>
     </section>
 
     <section class="manifesto">

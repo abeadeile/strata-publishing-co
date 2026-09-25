@@ -3,6 +3,8 @@ const opener = document.querySelector('[data-menu-button]');
 
 const originals = document.querySelector('[data-originals]');
 const liveHome = document.querySelector('[data-live-home]');
+const deskPrevious = document.querySelector('[data-desk-prev]');
+const deskNext = document.querySelector('[data-desk-next]');
 const PUBLISHING_CO_ENDPOINT = 'https://www.strata-af.com/api/publishing-co';
 
 function escapeHtml(value) {
@@ -23,6 +25,12 @@ async function loadPublishingContent() {
   }
 }
 loadPublishingContent();
+
+function moveDesk(direction) {
+  originals.scrollBy({ left: direction * Math.max(originals.clientWidth * 0.82, 280), behavior: reduce ? 'auto' : 'smooth' });
+}
+deskPrevious.addEventListener('click', () => moveDesk(-1));
+deskNext.addEventListener('click', () => moveDesk(1));
 
 function closeMenu() { menu.close(); opener.setAttribute('aria-expanded', 'false'); }
 opener.addEventListener('click', () => { menu.open ? closeMenu() : (menu.showModal(), opener.setAttribute('aria-expanded', 'true')); });
