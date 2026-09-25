@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strata Publishing Co. — African Intelligence</title>
+<meta name="description" content="Strata Publishing Co. builds editorial, research, and data properties that make the African continent legible — for investors, operators, and institutions.">
+<meta property="og:title" content="Strata Publishing Co. — African Intelligence">
+<meta property="og:description" content="Editorial, research, and data properties for the people deciding where Africa goes next.">
+<meta name="theme-color" content="#0D0B0A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230D0B0A'/%3E%3Cpath d='M9 11h14M9 16h14M9 21h9' stroke='%23EDE6D8' stroke-width='2.2' stroke-linecap='square'/%3E%3Ccircle cx='22' cy='21' r='2.2' fill='%23E0552A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0D0B0A; --panel:#151210; --panel2:#1B1714;
+  --bone:#EDE6D8; --muted:#9A8F80; --faint:#635A50;
+  --line:rgba(237,230,216,.09); --line2:rgba(237,230,216,.2);
+  --accent:#E0552A; --accent-dim:rgba(224,85,42,.5); --accent-ghost:rgba(224,85,42,.09);
+  --max:1360px;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--bone);font-family:'Archivo',sans-serif;font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+.mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 2.5rem;width:100%}
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:var(--bg);padding:.6rem 1rem;z-index:99;font-family:'IBM Plex Mono',monospace;font-size:.75rem}
+.skip:focus{left:0}
+
+/* grain */
+body::after{content:'';position:fixed;inset:-50%;pointer-events:none;z-index:50;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ── top bar ─────────────────────────── */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(13,11,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:3.4rem}
+.brand{display:flex;align-items:center;gap:.65rem;font-weight:700;font-size:.95rem;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.tb-right{display:flex;align-items:center;gap:1.8rem}
+.clock{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.04em;display:flex;align-items:center;gap:.55rem}
+.clock .dot{width:6px;height:6px;background:var(--accent);border-radius:0;animation:blink 2.4s steps(1) infinite}
+@keyframes blink{50%{opacity:.25}}
+.tb-cta{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.04em;text-decoration:none;padding:.5rem 1rem;border:1px solid var(--line2);color:var(--bone);transition:.2s}
+.tb-cta:hover{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+
+/* ── hero ────────────────────────────── */
+.hero{min-height:100dvh;display:flex;align-items:stretch;padding-top:3.4rem;position:relative;border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:3rem;align-items:center;padding-top:3rem;padding-bottom:3rem}
+.kicker{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1.8rem;opacity:0}
+.h1{font-weight:800;font-size:clamp(3rem,7.4vw,6.8rem);line-height:.94;letter-spacing:-.035em}
+.h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.h1 .ln span{display:block;will-change:transform}
+.h1 em{font-style:normal;color:var(--accent)}
+.hsub{margin-top:2.2rem;font-size:1.08rem;line-height:1.6;color:var(--muted);max-width:46ch;opacity:0}
+.hsub b{color:var(--bone);font-weight:600}
+.hero-cta-row{margin-top:2.4rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0}
+.btn{font-family:'IBM Plex Mono',monospace;font-size:.75rem;letter-spacing:.05em;text-decoration:none;padding:.85rem 1.5rem;transition:.2s;border:1px solid var(--accent)}
+.btn.solid{background:var(--accent);color:var(--bg)}
+.btn.solid:hover{background:transparent;color:var(--accent)}
+.btn.ghost{border-color:var(--line2);color:var(--muted)}
+.btn.ghost:hover{border-color:var(--bone);color:var(--bone)}
+
+/* map panel */
+.mapbox{position:relative;opacity:0}
+.mapbox svg{width:100%;height:auto;display:block}
+.map-caption{margin-top:1rem;display:flex;justify-content:space-between;gap:1rem;font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.06em;color:var(--faint);text-transform:uppercase}
+.map-caption .live{color:var(--accent)}
+@keyframes ping{0%{opacity:1}70%{opacity:.15}100%{opacity:1}}
+
+/* ── data strip ──────────────────────── */
+.strip{border-bottom:1px solid var(--line);background:var(--panel)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:1.6rem 0;border-left:1px solid var(--line);padding-left:1.6rem}
+.stat:first-child{border-left:none;padding-left:0}
+.stat-n{font-weight:700;font-size:1.7rem;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat-n em{font-style:normal;color:var(--accent)}
+.stat-l{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:.3rem}
+
+/* ── sections ────────────────────────── */
+section.block{padding:6.5rem 0}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:3rem}
+.sec-tag{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h2{font-weight:700;font-size:clamp(1.9rem,4.2vw,3.2rem);line-height:1.05;letter-spacing:-.03em;max-width:22ch;margin-top:1rem}
+.lede{margin-top:1.4rem;color:var(--muted);font-size:1.05rem;line-height:1.65;max-width:58ch}
+
+/* stack ledger */
+.ledger{border-top:1px solid var(--line)}
+.lrow{display:grid;grid-template-columns:8.5rem 1fr 1.4fr auto;gap:2rem;padding:2.2rem 0;border-bottom:1px solid var(--line);align-items:baseline;transition:background .25s,padding .25s}
+.lrow:hover{background:var(--panel);padding-left:1rem;padding-right:1rem;margin:0 -1rem;width:calc(100% + 2rem)}
+.lkey{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:var(--faint);text-transform:uppercase}
+.lname{font-weight:700;font-size:1.45rem;letter-spacing:-.02em}
+.ldesc{color:var(--muted);font-size:.97rem;line-height:1.6}
+.lstate{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
+.lstate.on{color:var(--accent)}
+
+/* ── the wire ────────────────────────── */
+.wire-shell{border:1px solid var(--line);background:var(--panel)}
+.wire-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 1.4rem;border-bottom:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}
+.wire-head .src{color:var(--muted)}
+.wire-head .st{color:var(--accent);display:flex;align-items:center;gap:.5rem}
+.wire-head .st i{width:6px;height:6px;background:var(--accent);animation:blink 2.4s steps(1) infinite}
+.wrow{display:grid;grid-template-columns:7.2rem 6.8rem 1fr;gap:1.4rem;padding:1.15rem 1.4rem;border-bottom:1px solid var(--line);align-items:baseline;text-decoration:none;transition:background .2s}
+.wrow:last-of-type{border-bottom:none}
+.wrow:hover{background:var(--panel2)}
+.wrow:hover .wh{color:var(--accent)}
+.wt{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--faint)}
+.wv{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line2);padding:.2rem .5rem;justify-self:start;white-space:nowrap}
+.wh{font-size:1rem;font-weight:500;line-height:1.45;transition:color .2s}
+.wire-foot{padding:1rem 1.4rem;border-top:1px solid var(--line)}
+.wire-foot a{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.wire-foot a:hover{color:var(--accent)}
+
+/* ── properties ──────────────────────── */
+.props{display:grid;grid-template-columns:1.2fr 1fr;gap:1.5rem;align-items:stretch}
+.pcard{border:1px solid var(--line);padding:2.4rem;display:flex;flex-direction:column;gap:1.1rem;background:var(--panel);position:relative;transition:border-color .25s}
+.pcard:hover{border-color:var(--line2)}
+.pcard.flag{background:linear-gradient(160deg,var(--panel2),var(--panel) 55%);border-color:rgba(224,85,42,.35)}
+.pcard.flag::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent)}
+.pstate{font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.pcard.flag .pstate{color:var(--accent)}
+.pname{font-weight:800;font-size:clamp(1.7rem,3.4vw,2.5rem);letter-spacing:-.03em;line-height:1}
+.pname sup{font-size:.85rem;color:var(--faint);font-weight:500}
+.pdesc{color:var(--muted);font-size:.98rem;line-height:1.62;max-width:52ch}
+.pfoot{margin-top:auto;padding-top:1.2rem}
+.plink{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--bone);text-decoration:none;border-bottom:1px solid var(--line2);padding-bottom:2px;transition:.2s}
+.plink:hover{color:var(--accent);border-color:var(--accent)}
+.plink.dis{color:var(--faint);border-color:transparent;cursor:default}
+
+/* ── contact ─────────────────────────── */
+.desks{border-top:1px solid var(--line)}
+.desk{display:grid;grid-template-columns:10rem 1fr auto;gap:2rem;align-items:baseline;padding:2rem 0;border-bottom:1px solid var(--line);text-decoration:none;transition:background .2s,padding .2s}
+.desk:hover{background:var(--panel);padding-left:1rem;padding-right:1rem;margin:0 -1rem;width:calc(100% + 2rem)}
+.desk-k{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.desk-d{color:var(--muted);font-size:.97rem}
+.desk-m{font-family:'IBM Plex Mono',monospace;font-size:.85rem;color:var(--bone);transition:color .2s;word-break:break-word}
+.desk:hover .desk-m{color:var(--accent)}
+
+/* ── footer ──────────────────────────── */
+footer{border-top:1px solid var(--line);background:var(--panel)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;padding-top:2.2rem;padding-bottom:2.2rem}
+.fcopy{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--faint)}
+.flinks{display:flex;gap:1.6rem;flex-wrap:wrap}
+.flinks a{font-family:'IBM Plex Mono',monospace;font-size:.68rem;text-decoration:none;color:var(--muted);transition:color .2s}
+.flinks a:hover{color:var(--accent)}
+
+.reveal{opacity:0;transform:translateY(24px)}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal,.kicker,.hsub,.hero-cta-row,.mapbox{opacity:1!important;transform:none!important}
+  .h1 .ln span{transform:none!important}
+  .clock .dot,.wire-head .st i,.sig{animation:none!important}
+  html{scroll-behavior:auto}
+}
+@media(max-width:1000px){
+  .hero .wrap{grid-template-columns:1fr;gap:3.5rem}
+  .mapbox{max-width:420px}
+  .strip .wrap{grid-template-columns:1fr 1fr}
+  .stat{border-left:none;padding-left:0;border-top:1px solid var(--line)}
+  .stat:nth-child(-n+2){border-top:none}
+  .lrow{grid-template-columns:1fr;gap:.5rem}
+  .props{grid-template-columns:1fr}
+  .wrow{grid-template-columns:1fr;gap:.45rem}
+  .desk{grid-template-columns:1fr;gap:.5rem}
+}
+@media(max-width:560px){
+  .wrap{padding:0 1.3rem}
+  section.block{padding:4.5rem 0}
+  .clock{display:none}
+  .h1{font-size:clamp(2.6rem,12.5vw,4rem)}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="topbar"><div class="wrap">
+  <a href="/" class="brand" aria-label="Strata Publishing Co. home">
+    <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#1B1714"/><path d="M9 11h14M9 16h14M9 21h9" stroke="#EDE6D8" stroke-width="2.2" stroke-linecap="square"/><circle cx="22" cy="21" r="2.2" fill="#E0552A"/></svg>
+    Strata Publishing Co.
+  </a>
+  <div class="tb-right">
+    <span class="clock" aria-hidden="true"><i class="dot"></i><span id="utc">— — : — — : — — UTC</span></span>
+    <a href="#contact" class="tb-cta">Get in touch</a>
+  </div>
+</div></div>
+
+<main id="main">
+
+<header class="hero"><div class="wrap">
+  <div>
+    <p class="kicker">African intelligence company</p>
+    <h1 class="h1">
+      <span class="ln"><span>We make</span></span>
+      <span class="ln"><span>the continent</span></span>
+      <span class="ln"><span><em>legible.</em></span></span>
+    </h1>
+    <p class="hsub">Editorial, research, and data properties for the people deciding where Africa goes next — <b>investors, operators, and institutions.</b> Built inside the continent, not about it.</p>
+    <div class="hero-cta-row">
+      <a class="btn solid" href="https://www.strata-af.com" target="_blank" rel="noopener">Read STRATA-AF</a>
+      <a class="btn ghost" href="#work">What we build</a>
+    </div>
+  </div>
+  <figure class="mapbox" aria-label="Dot-matrix map of Africa with live signal points">
+    <svg id="afmap" viewBox="0 0 440 480" role="img" aria-hidden="true"></svg>
+    <figcaption class="map-caption"><span>Coverage — 54 markets</span><span class="live">Signals · live</span></figcaption>
+  </figure>
+</div></header>
+
+<div class="strip"><div class="wrap">
+  <div class="stat reveal"><div class="stat-n">54</div><div class="stat-l">Markets monitored</div></div>
+  <div class="stat reveal"><div class="stat-n">10</div><div class="stat-l">Coverage verticals</div></div>
+  <div class="stat reveal"><div class="stat-n">2,341<em>+</em></div><div class="stat-l">Articles indexed</div></div>
+  <div class="stat reveal"><div class="stat-n">Daily</div><div class="stat-l">Editorial cadence</div></div>
+</div></div>
+
+<section class="block" id="work"><div class="wrap">
+  <div class="sec-head reveal">
+    <div>
+      <p class="sec-tag">The stack</p>
+      <h2>The continent produces more signal than the tools built to read it.</h2>
+      <p class="lede">Global research houses cover Africa from the outside. We build intelligence from within it — fluent in the markets, the culture, and the context imported models miss. Three layers, each feeding the next.</p>
+    </div>
+  </div>
+  <div class="ledger">
+    <div class="lrow reveal">
+      <span class="lkey">Layer 01</span>
+      <span class="lname">Editorial</span>
+      <p class="ldesc">Curated news and culture across ten verticals. The daily read that builds the audience, the credibility, and the raw signal everything above it stands on.</p>
+      <span class="lstate on">Live</span>
+    </div>
+    <div class="lrow reveal">
+      <span class="lkey">Layer 02</span>
+      <span class="lname">Research</span>
+      <p class="ldesc">Sector reports, trend briefs, and commissioned intelligence — for funds and institutions that need to understand a market before they move.</p>
+      <span class="lstate">2026</span>
+    </div>
+    <div class="lrow reveal">
+      <span class="lkey">Layer 03</span>
+      <span class="lname">Data</span>
+      <p class="ldesc">Structured feeds and indices drawn from the editorial pipeline. The continent, classified and queryable — infrastructure for builders.</p>
+      <span class="lstate">2026</span>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:0"><div class="wrap">
+  <div class="sec-head reveal">
+    <div>
+      <p class="sec-tag">The wire</p>
+      <h2>What the desk is reading.</h2>
+    </div>
+  </div>
+  <div class="wire-shell reveal">
+    <div class="wire-head"><span class="src">STRATA-AF / latest</span><span class="st"><i></i>Feed</span></div>
+    <a class="wrow" href="https://www.strata-af.com" target="_blank" rel="noopener">
+      <span class="wt">07 AUG 06:42</span><span class="wv">Finance</span>
+      <span class="wh">Nigeria's pension funds edge deeper into private credit as treasury yields cool</span>
+    </a>
+    <a class="wrow" href="https://www.strata-af.com" target="_blank" rel="noopener">
+      <span class="wt">07 AUG 05:57</span><span class="wv">Tech</span>
+      <span class="wh">Nairobi's data-centre buildout collides with Kenya's grid reality</span>
+    </a>
+    <a class="wrow" href="https://www.strata-af.com" target="_blank" rel="noopener">
+      <span class="wt">06 AUG 21:14</span><span class="wv">Culture</span>
+      <span class="wh">Amapiano's second act: how South African labels are renegotiating global licensing</span>
+    </a>
+    <a class="wrow" href="https://www.strata-af.com" target="_blank" rel="noopener">
+      <span class="wt">06 AUG 18:03</span><span class="wv">Politics</span>
+      <span class="wh">The AfCFTA rules-of-origin fight nobody outside the negotiating rooms is covering</span>
+    </a>
+    <a class="wrow" href="https://www.strata-af.com" target="_blank" rel="noopener">
+      <span class="wt">06 AUG 15:36</span><span class="wv">Health</span>
+      <span class="wh">Local vaccine manufacturing gets its first real order book in Dakar</span>
+    </a>
+    <div class="wire-foot"><a href="https://www.strata-af.com" target="_blank" rel="noopener">Open the full feed → strata-af.com</a></div>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:0"><div class="wrap">
+  <div class="sec-head reveal">
+    <div>
+      <p class="sec-tag">Properties</p>
+      <h2>One house. A growing set of properties.</h2>
+    </div>
+  </div>
+  <div class="props">
+    <div class="pcard flag reveal">
+      <span class="pstate">Status: Live</span>
+      <div class="pname">STRATA-AF<sup>™</sup></div>
+      <p class="pdesc">The flagship reader. Curated African news, culture, and analysis across ten verticals — the audience and signal layer of the company. Published daily.</p>
+      <div class="pfoot"><a class="plink" href="https://www.strata-af.com" target="_blank" rel="noopener">strata-af.com ↗</a></div>
+    </div>
+    <div class="pcard reveal">
+      <span class="pstate">Status: In development — 2026</span>
+      <div class="pname">Strata Intelligence</div>
+      <p class="pdesc">The research and data layer. Reports, briefings, and structured feeds for investors and institutions, built on the signal the editorial desk produces every day.</p>
+      <div class="pfoot"><span class="plink dis">Announcing 2026</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="contact" style="padding-top:0"><div class="wrap">
+  <div class="sec-head reveal">
+    <div>
+      <p class="sec-tag">Contact</p>
+      <h2>Find the right desk.</h2>
+    </div>
+  </div>
+  <div class="desks">
+    <a class="desk reveal" href="mailto:investors@stratapublishing.co">
+      <span class="desk-k">Investors</span>
+      <span class="desk-d">Funding, the thesis, the roadmap.</span>
+      <span class="desk-m">investors@stratapublishing.co</span>
+    </a>
+    <a class="desk reveal" href="mailto:partners@stratapublishing.co">
+      <span class="desk-k">Partners</span>
+      <span class="desk-d">Distribution, licensing, data.</span>
+      <span class="desk-m">partners@stratapublishing.co</span>
+    </a>
+    <a class="desk reveal" href="mailto:press@stratapublishing.co">
+      <span class="desk-k">Press</span>
+      <span class="desk-d">Media, interviews, brand assets.</span>
+      <span class="desk-m">press@stratapublishing.co</span>
+    </a>
+  </div>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">
+  <span class="fcopy">© 2026 Strata Publishing Co. · Lagos</span>
+  <div class="flinks">
+    <a href="https://www.strata-af.com" target="_blank" rel="noopener">STRATA-AF™</a>
+    <a href="https://www.instagram.com/strata.af/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://x.com/strata_af" target="_blank" rel="noopener">X</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── UTC desk clock ── */
+  var utc = document.getElementById('utc');
+  function tick(){
+    var d = new Date();
+    var p = function(n){return String(n).padStart(2,'0')};
+    utc.textContent = p(d.getUTCHours())+':'+p(d.getUTCMinutes())+':'+p(d.getUTCSeconds())+' UTC';
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ── dot-matrix Africa ──
+     grid rows: '.' = ocean, '#' = land, 'M' = Madagascar */
+  var G = [
+    "......#######.........",
+    "....##########........",
+    "..#############.......",
+    ".###############......",
+    ".################.....",
+    "#################.....",
+    "##################....",
+    "###################...",
+    "###################...",
+    ".#################....",
+    "..######_#########....",
+    "...#....##########....",
+    "........#########.....",
+    "........########......",
+    ".......#########......",
+    ".......#########......",
+    "........########......",
+    "........########..M...",
+    "........#######...M...",
+    "........#######...M...",
+    ".........######...M...",
+    ".........#####........",
+    "..........####........",
+    "..........###.........",
+    "...........#.........."
+  ];
+  var svg = document.getElementById('afmap');
+  var NS = 'http://www.w3.org/2000/svg';
+  var cell = 20, r = 4.6, ox = 10, oy = 10;
+  var landDots = [];
+  G.forEach(function(row, y){
+    row.split('').forEach(function(ch, x){
+      if(ch === '.' || ch === '_') return;
+      var c = document.createElementNS(NS,'circle');
+      c.setAttribute('cx', ox + x*cell);
+      c.setAttribute('cy', oy + y*cell);
+      c.setAttribute('r', r);
+      c.setAttribute('fill', ch === 'M' ? 'rgba(237,230,216,.28)' : 'rgba(237,230,216,.34)');
+      svg.appendChild(c);
+      if(ch === '#') landDots.push(c);
+    });
+  });
+  /* signal dots — a pulsing subset in accent */
+  var picks = [];
+  var want = 9;
+  while(picks.length < want && landDots.length){
+    var i = Math.floor(Math.random()*landDots.length);
+    if(picks.indexOf(landDots[i]) === -1) picks.push(landDots[i]);
+  }
+  picks.forEach(function(c, i){
+    c.setAttribute('fill', '#E0552A');
+    if(!reduce){
+      c.classList.add('sig');
+      c.style.animation = 'ping ' + (2 + (i%3)*0.7) + 's ease-in-out ' + (i*0.35) + 's infinite';
+      c.style.transformOrigin = 'center';
+    }
+  });
+
+  if(reduce){
+    document.querySelectorAll('.reveal').forEach(function(e){e.style.opacity=1;e.style.transform='none';});
+    return;
+  }
+
+  /* ── load choreography ── */
+  var tl = anime.timeline({easing:'cubicBezier(.16,1,.3,1)'});
+  tl.add({targets:'.h1 .ln span', translateY:['112%','0%'], duration:1100, delay:anime.stagger(110,{start:150})})
+    .add({targets:'.kicker', opacity:[0,1], translateY:[10,0], duration:550}, '-=950')
+    .add({targets:'.hsub', opacity:[0,1], translateY:[14,0], duration:650}, '-=500')
+    .add({targets:'.hero-cta-row', opacity:[0,1], translateY:[12,0], duration:550}, '-=420')
+    .add({targets:'.mapbox', opacity:[0,1], duration:900}, '-=700');
+
+  /* ── scroll reveals ── */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(en.isIntersecting){
+        anime({targets:en.target, opacity:[0,1], translateY:[24,0], duration:750, easing:'cubicBezier(.16,1,.3,1)'});
+        io.unobserve(en.target);
+      }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>
